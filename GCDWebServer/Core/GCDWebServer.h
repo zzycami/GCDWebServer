@@ -30,6 +30,7 @@
 #import "GCDWebServerRequest.h"
 #import "GCDWebServerResponse.h"
 
+
 NS_ASSUME_NONNULL_BEGIN
 
 /**
@@ -233,6 +234,7 @@ extern NSString* const GCDWebServerAuthenticationMethod_Basic;
 extern NSString* const GCDWebServerAuthenticationMethod_DigestAccess;
 
 @class GCDWebServer;
+@class GCDWebServerConnection;
 
 /**
  *  Delegate methods for GCDWebServer.
@@ -292,6 +294,11 @@ extern NSString* const GCDWebServerAuthenticationMethod_DigestAccess;
  *  This method is called after the server has stopped.
  */
 - (void)webServerDidStop:(GCDWebServer*)server;
+
+/**
+ *  This method is called when upload or download data is transffered.
+ */
+- (void) webServerDidUpload:(GCDWebServer*) server connection:(GCDWebServerConnection*) connection didUploadDataLength: (int) length totalLength: (int) total;
 
 @end
 

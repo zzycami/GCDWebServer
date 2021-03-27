@@ -154,6 +154,16 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy) NSString* footer;
 
 /**
+ * Sets the upload button's name
+ */
+@property(nonatomic, copy) NSString* uploadButtonName;
+
+/**
+ * Sets the refresh button's name
+ */
+@property(nonatomic, copy) NSString* refreshButtonName;
+
+/**
  *  This method is the designated initializer for the class.
  */
 - (instancetype)initWithUploadDirectory:(NSString*)path;
