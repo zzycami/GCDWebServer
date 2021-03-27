@@ -102,6 +102,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  parses the body of the HTTP request as a multipart encoded form.
  */
 @interface GCDWebServerMultiPartFormRequest : GCDWebServerRequest
+@property(nonatomic, retain) NSString* fileName;
 
 /**
  *  Returns the argument parts from the multipart encoded form as

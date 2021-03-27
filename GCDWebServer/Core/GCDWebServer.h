@@ -235,6 +235,7 @@ extern NSString* const GCDWebServerAuthenticationMethod_DigestAccess;
 
 @class GCDWebServer;
 @class GCDWebServerConnection;
+@class GCDWebServerMultiPartFormRequest;
 
 /**
  *  Delegate methods for GCDWebServer.
@@ -298,7 +299,7 @@ extern NSString* const GCDWebServerAuthenticationMethod_DigestAccess;
 /**
  *  This method is called when upload or download data is transffered.
  */
-- (void) webServerDidUpload:(GCDWebServer*) server connection:(GCDWebServerConnection*) connection didUploadDataLength: (int) length totalLength: (int) total;
+- (void) webServerDidUpload:(GCDWebServer*) server connection:(GCDWebServerConnection*) connection request:(GCDWebServerMultiPartFormRequest*) request didUploadDataLength: (int) length;
 
 @end
 

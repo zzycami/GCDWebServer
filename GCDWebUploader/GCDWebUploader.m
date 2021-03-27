@@ -156,6 +156,7 @@ NS_ASSUME_NONNULL_END
                              path:@"/list"
                      requestClass:[GCDWebServerRequest class]
                      processBlock:^GCDWebServerResponse*(GCDWebServerRequest* request) {
+            NSLog(@"list: %@", request);
             return [server listDirectory:request];
         }];
         
@@ -164,6 +165,7 @@ NS_ASSUME_NONNULL_END
                              path:@"/download"
                      requestClass:[GCDWebServerRequest class]
                      processBlock:^GCDWebServerResponse*(GCDWebServerRequest* request) {
+            NSLog(@"download: %@", request);
             return [server downloadFile:request];
         }];
         
@@ -188,6 +190,7 @@ NS_ASSUME_NONNULL_END
                              path:@"/delete"
                      requestClass:[GCDWebServerURLEncodedFormRequest class]
                      processBlock:^GCDWebServerResponse*(GCDWebServerRequest* request) {
+            NSLog(@"delete: %@", request);
             return [server deleteItem:(GCDWebServerURLEncodedFormRequest*)request];
         }];
         
@@ -196,6 +199,7 @@ NS_ASSUME_NONNULL_END
                              path:@"/create"
                      requestClass:[GCDWebServerURLEncodedFormRequest class]
                      processBlock:^GCDWebServerResponse*(GCDWebServerRequest* request) {
+            NSLog(@"create: %@", request);
             return [server createDirectory:(GCDWebServerURLEncodedFormRequest*)request];
         }];
     }

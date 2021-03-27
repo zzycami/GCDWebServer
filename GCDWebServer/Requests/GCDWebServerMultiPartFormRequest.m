@@ -42,6 +42,7 @@ typedef enum {
 } ParserState;
 
 @interface GCDWebServerMIMEStreamParser : NSObject
+@property(nonatomic, retain) NSString* fileName;
 @end
 
 static NSData* _newlineData = nil;
@@ -382,6 +383,10 @@ static NSData* _dashNewlineData = nil;
     }
   }
   return nil;
+}
+
+- (NSString*) fileName {
+    return _parser.fileName;
 }
 
 - (NSString*)description {
