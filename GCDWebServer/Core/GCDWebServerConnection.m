@@ -285,7 +285,6 @@ NS_ASSUME_NONNULL_END
                 self->_virtualHEAD = YES;
             }
             NSDictionary* requestHeaders = CFBridgingRelease(CFHTTPMessageCopyAllHeaderFields(self->_requestMessage));  // Header names are case-insensitive but CFHTTPMessageCopyAllHeaderFields() will standardize the common ones
-            NSLog(@"requestHeader: %@", requestHeaders);
             NSURL* requestURL = CFBridgingRelease(CFHTTPMessageCopyRequestURL(self->_requestMessage));
             if (requestURL) {
                 requestURL = [self rewriteRequestURL:requestURL withMethod:requestMethod headers:requestHeaders];
@@ -298,7 +297,6 @@ NS_ASSUME_NONNULL_END
             NSString* requestPath = urlPath ? GCDWebServerUnescapeURLString(urlPath) : nil;
             NSString* queryString = requestURL ? CFBridgingRelease(CFURLCopyQueryString((CFURLRef)requestURL, NULL)) : nil;  // Don't use -[NSURL query] to make sure query is not unescaped;
             NSDictionary* requestQuery = queryString ? GCDWebServerParseURLEncodedForm(queryString) : @{};
-            NSLog(@"requestQuery: %@", requestQuery);
             if (requestMethod && requestURL && requestHeaders && requestPath && requestQuery) {
                 for (self->_handler in self->_server.handlers) {
                     self->_request = self->_handler.matchBlock(requestMethod, requestURL, requestHeaders, requestPath, requestQuery);
